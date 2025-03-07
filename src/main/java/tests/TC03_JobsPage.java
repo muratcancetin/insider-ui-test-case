@@ -54,7 +54,7 @@ public class TC03_JobsPage extends Hooks {
     }
 
     @Test
-    public void test1() {
+    public void selectPositionAndSwitchTheJobPage() {
         checkThatPositionAndDepartment();
         String titleJobText = leverPage.hoverJobCardAndClickViewRole();
         String switchTabJobText = leverPage.switchTabAndVerify();

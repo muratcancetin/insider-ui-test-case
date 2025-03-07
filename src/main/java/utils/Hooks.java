@@ -8,6 +8,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.testng.ITestResult;
 import org.testng.annotations.AfterMethod;
+import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeSuite;
 
 import java.io.File;
@@ -25,7 +26,7 @@ public class Hooks {
         driver = DriverManager.getDriver();
     }
 
-    @AfterMethod
+    @AfterSuite
     public void tearDown(ITestResult result) {
         if (!result.isSuccess()) {
             File scrFile = ((TakesScreenshot) DriverManager.getDriver()).getScreenshotAs(OutputType.FILE);

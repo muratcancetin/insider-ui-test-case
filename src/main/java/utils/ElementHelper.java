@@ -8,8 +8,6 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import org.slf4j.LoggerFactory;
-import tests.LogTest;
 
 import java.time.Duration;
 import java.util.Iterator;
@@ -33,7 +31,7 @@ public class ElementHelper {
     public void goToURL(String url) {
         try {
             driver.get(url);
-            logger.info("Go To URL Address");
+            logger.info("Go To URL Address {}", url);
         } catch (RuntimeException e) {
             logger.error("Not GO URL ", e);
             throw new RuntimeException(e);

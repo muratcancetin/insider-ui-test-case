@@ -26,8 +26,7 @@ public class TC01_HomePage extends Hooks {
     @Test
     public void verifyHomePage() {
         helper.goToURL(getProperty("BASE_URL"));
-        Assert.assertEquals(driver.getCurrentUrl(),getProperty("BASE_URL"));
-        Assert.assertEquals(driver.getTitle(),TitleList.valueOf("HOMEPAGE_TITLE").getTitle);
+        Assert.assertEquals(driver.getCurrentUrl(), getProperty("BASE_URL"));
+        Assert.assertEquals(driver.getTitle(), TitleList.valueOf("HOMEPAGE_TITLE").getTitle);
     }
-
 }
