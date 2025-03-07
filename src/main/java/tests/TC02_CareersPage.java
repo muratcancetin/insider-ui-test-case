@@ -28,12 +28,11 @@ public class TC02_CareersPage extends Hooks {
 
     @Test
     public void verifyHomePage() {
-        driver.get(getProperty("BASE_URL"));
         Assert.assertEquals(driver.getCurrentUrl(),getProperty("BASE_URL"));
         Assert.assertEquals(driver.getTitle(),TitleList.valueOf("HOMEPAGE_TITLE").getTitle);
     }
 
-    @Test
+    @Test(dependsOnMethods = "verifyHomePage")
     public void goHomePage() {
         homePage.hoverAndClickToCareersMenu();
         Assert.assertEquals(driver.getCurrentUrl(),getProperty("CAREER_PATH_URL"));
@@ -41,9 +40,10 @@ public class TC02_CareersPage extends Hooks {
     }
 
     @Test
-    public void click() {
+    public void clickAndOpenJobsPage() {
         goHomePage();
         jobPages.openJobsPage();
+        Assert.assertEquals(driver.getTitle(), TitleList.valueOf("OPEN_POSITION_PAGE_TITLE").getTitle);
     }
 
 }
