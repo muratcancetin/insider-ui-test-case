@@ -5,26 +5,23 @@ import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.testng.ITestResult;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.BeforeSuite;
 
 import java.io.File;
 import java.io.IOException;
 
-import static utils.ConfigReader.getProperty;
 
 public class Hooks {
     protected WebDriver driver;
     private static final String SCREENSHOT_FOLDER = System.getProperty("user.dir") + "/FailedScenarioScreenshoots";
 
-    @BeforeMethod
+    @BeforeSuite
     public void setUp() throws IOException {
         cleanScreenshotFolder();
         driver = DriverManager.getDriver();
-        driver.get(getProperty("BASE_URL"));
     }
 
-    @AfterMethod
+    @BeforeSuite
     public void tearDown(ITestResult result) {
         if (!result.isSuccess()) {
             File scrFile = ((TakesScreenshot) DriverManager.getDriver()).getScreenshotAs(OutputType.FILE);

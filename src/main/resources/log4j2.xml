@@ -1,37 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Configuration status="WARN" monitorInterval="30">
+
+<Configuration status="INFO" monitorInterval="30">
     <Appenders>
-        <!-- Konsola log yazmak için Console Appender -->
         <Console name="Console" target="SYSTEM_OUT">
             <PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss} %-5level %logger{36} - %msg%n"/>
         </Console>
-
-        <!-- Dosyaya log yazmak için RollingFile Appender -->
-        <RollingFile name="RollingFile" fileName="target/logs/test.log"
-                     filePattern="logs/test-%d{yyyy-MM-dd}-%i.log">
-            <PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss} %-5level %logger{36} - %msg%n"/>
-            <Policies>
-                <!-- Her gün yeni bir log dosyası oluşturur -->
-                <TimeBasedTriggeringPolicy interval="1" modulate="true"/>
-                <!-- Log dosyası 10MB'ı geçerse yeni bir dosya oluşturur -->
-                <SizeBasedTriggeringPolicy size="10 MB"/>
-            </Policies>
-            <!-- En fazla 10 dosya saklar, eski dosyaları siler -->
-            <DefaultRolloverStrategy max="10">
-                <!-- 7 günden eski dosyaları siler -->
-                <Delete basePath="target/logs" maxDepth="1">
-                    <IfFileName glob="test-*.log" />
-                    <IfLastModified age="7d" />
-                </Delete>
-            </DefaultRolloverStrategy>
-        </RollingFile>
     </Appenders>
 
     <Loggers>
-        <!-- Root Logger: Tüm loglar için geçerli -->
-        <Root level="warn">
+        <Root level="INFO">
             <AppenderRef ref="Console"/>
-            <AppenderRef ref="RollingFile"/>
         </Root>
     </Loggers>
 </Configuration>

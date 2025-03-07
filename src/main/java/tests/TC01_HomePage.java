@@ -23,18 +23,11 @@ public class TC01_HomePage extends Hooks {
         homePage = new HomePage(driver);
     }
 
-
-    @Test(priority = 1)
+    @Test
     public void verifyHomePage() {
-        driver.get(getProperty("BASE_URL"));
+        helper.goToURL(getProperty("BASE_URL"));
         Assert.assertEquals(driver.getCurrentUrl(),getProperty("BASE_URL"));
         Assert.assertEquals(driver.getTitle(),TitleList.valueOf("HOMEPAGE_TITLE").getTitle);
     }
 
-    @Test
-    public void goHomePage() {
-        homePage.hoverAndClickToCareersMenu();
-        Assert.assertEquals(driver.getCurrentUrl(),getProperty("CAREER_PATH_URL"));
-        Assert.assertEquals(driver.getTitle(), TitleList.valueOf("CAREERS_TITLE").getTitle);
-    }
 }

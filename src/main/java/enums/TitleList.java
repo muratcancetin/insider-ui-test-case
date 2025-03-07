@@ -10,7 +10,8 @@ import lombok.NoArgsConstructor;
 public enum TitleList {
     CAREERS_TITLE("Ready to disrupt? | Insider Careers"),
     HOMEPAGE_TITLE("#1 Leader in Individualized, Cross-Channel CX — Insider"),
-    OPEN_POSITION_PAGE_TITLE("Insider Open Positions | Insider");
+    OPEN_POSITIONS("Insider Open Positions | Insider"),
+    QUALITY_ASSURANCE_JOB_OPPORTUNITIES_TITLE("Insider quality assurance job opportunities");
 
     public String getTitle;
 }
