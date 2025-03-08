@@ -57,7 +57,6 @@ public class CareersPage extends BasePage {
             List<String> countryNames = locationsList.stream()
                     .map(WebElement::getText)
                     .collect(Collectors.toList());
-            System.out.println("Locations : " + countryNames.size() + " count.");
             Assert.assertEquals(countryNames.size(), 25);
             logger.info("Locations Count Verified");
         } catch (RuntimeException e) {
@@ -68,6 +67,6 @@ public class CareersPage extends BasePage {
     public void verifyLifeAtInsider() {
         helper.scrollToElement(lifeAtInsiderText);
         helper.checkElementDisplayed(lifeAtInsiderText);
-        System.out.println("Life at Insider Basligi Dogrulandi.");
+        logger.info("Verified Life at Insider Title");
     }
 }
