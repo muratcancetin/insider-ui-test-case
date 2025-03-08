@@ -23,7 +23,7 @@ public class ElementHelper {
 
     public ElementHelper(WebDriver driver) {
         this.driver = driver;
-        this.wait = new WebDriverWait(driver, Duration.ofSeconds(60)); // 10 saniye timeout
+        this.wait = new WebDriverWait(driver, Duration.ofSeconds(60));
         this.actions = new Actions(driver);
     }
 
@@ -70,6 +70,7 @@ public class ElementHelper {
             logger.info("Element clicked.");
         } catch (Exception e) {
             logger.error("Error: Element did not become clickable or click failed.", e);
+            throw new RuntimeException(e);
         }
     }
 
@@ -90,7 +91,7 @@ public class ElementHelper {
             return wait.until(ExpectedConditions.visibilityOf(element));
         } catch (Exception e) {
             logger.error("Error: Element isn't displayed.", e);
-            return null;
+            throw new RuntimeException(e);
         }
     }
 
@@ -100,6 +101,7 @@ public class ElementHelper {
             logger.info("Scroll To Element {}", element.getText());
         } catch (Exception e) {
             logger.error("Error: Element isn't displayed.", e);
+            throw new RuntimeException(e);
         }
     }
 

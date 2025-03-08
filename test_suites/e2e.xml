@@ -1,7 +1,6 @@
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
 
-<suite name="Jobs Page">
-
+<suite name="Test Case">
     <test name="UI Test Page Case" verbose="5">
         <classes>
             <class name="tests.TC01_HomePage"/>
